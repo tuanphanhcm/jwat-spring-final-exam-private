@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.cyberlogitec.jwat.mybatis.mapper.ShipMapper">
+	<resultMap id="ship" type="Ship">
+        <id property="shipId" column="SHIP_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="capacity" column="CAPACITY"/>
+    </resultMap>
+    
+    <select id="selectAllShips" resultMap="ship">
+        SELECT
+          *
+        FROM
+          SHIP
+    </select>
+    
+    <select id="selectShipById" resultMap="ship">
+        SELECT
+          *
+        FROM
+          SHIP
+        WHERE SHIP_ID = #{id}
+    </select>
+</mapper>
