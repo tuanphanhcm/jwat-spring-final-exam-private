@@ -8,11 +8,40 @@
  - Clone or download this project to your local computer
  ![](src/main/resources/images/git%20download.png)
  
+ - Create database **jwat** then import dataset to table as numberered.
+ ![](src/main/resources/images/dataset.png)
+ 
+ - Change dataSource in application.properties with your local database connection
+ ![](src/main/resources/images/application%20properties.png)
+ 
+ - Run Spring Boot App
+ ![](src/main/resources/images/run.png)
+ 
+ - Open browser and go to address http://localhost:8080/swagger-ui.html
+ ![](src/main/resources/images/swagger.png)
+ 
+ - You have been run the project successfully.
+ 
 ## Exclusion
  This project is for education purpose only, so we removed some module (security, validate, exception handler...) to simplified the project structure.
  
 ## Project structure
-
+ Project is build with simple MVC Architecture. **RESTful API** is used to communicate with client.
+ 
+ - **Models**
+ ![](src/main/resources/images/models.png)
+ 
+ - **Physical storage**
+ ![](src/main/resources/images/Cargo%20Line%20ERD.png)
+ 
+ - **Repository layer**
+ ![](src/main/resources/images/Repository.png)
+ 
+ - **Service layer**
+ ![](src/main/resources/images/Service.png)
+ 
+ - **Controller layer**
+ ![](src/main/resources/images/endpoints.png)
 ## Problem 1
 
 ## Problem 2
