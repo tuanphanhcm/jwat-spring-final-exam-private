@@ -11,8 +11,8 @@
         <result property="voyageQuantity" column="VOYAGE_QUANTITY"/>
         <result property="costPerTeq" column="COST_PER_TEQ"/>
     </resultMap>
-    
-    <resultMap type="vn.com.cyberlogitec.jwat.model.dto.VoyageShipmentDto" id="voyageShipmentDto">
+    <!-- vn.com.cyberlogitec.jwat.model.dto.VoyageShipmentDto -->
+    <resultMap type="VoyageShipmentDto" id="voyageShipmentDto">
     	<id property="voyageId" column="voyageId"/>
     	<result property="shipId" column="shipId"/>
     	<result property="shipName" column="shipName"/>

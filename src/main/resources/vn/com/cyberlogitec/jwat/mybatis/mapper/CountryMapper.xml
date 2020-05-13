@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.cyberlogitec.jwat.mybatis.mapper.CountryMapper">
+    
+    <select id="getAllCountries" resultType="Country">
+        SELECT
+          *
+        FROM
+          COUNTRY
+        WHERE
+        	IS_DELETED = 0
+    </select>
+    
+    <select id="getCountryById" resultType="Country">
+        SELECT
+          *
+        FROM
+          COUNTRY
+        WHERE 1 = 1
+        	<if test="id !=null and id !=''">
+        		ID = #{id}
+        	</if>
+        	AND IS_DELETED = 0
+    </select>
+    
+    <insert id="insertCountry" >
+	    INSERT INTO
+	      COUNTRY (ID, NAME)
+	    VALUES
+	      (#{id},#{name})
+    </insert>
+    
+    <update id="updateCountry">
+    	UPDATE 
+    		COUNTRY
+    	SET
+    		NAME = #{name}
+    	WHERE
+    		ID = #{id}
+    </update>
+    
+    <update id="deleteCountry">
+    	UPDATE 
+    		COUNTRY
+    	SET
+    		IS_DELETED = 1
+    	WHERE
+    		ID = #{id}
+    </update>
+</mapper>

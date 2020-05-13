@@ -8,4 +8,6 @@ public interface ShipRepository {
 	
 	List<Ship> selectAllShips();
 	Ship selectShipById(String id);
+	Ship insertShip(Ship ship);
+	
 }

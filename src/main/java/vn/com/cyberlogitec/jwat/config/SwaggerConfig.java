@@ -29,7 +29,7 @@ public class SwaggerConfig {
                 .title("JWAT Spring Final Exam")
                 .version("1.0")
                 .description("JWAT Spring Final Exam")
-                .contact(new Contact("Tuan Phan Thanh","https://github.com/tuanphanhcm","tuan.phan@cyberlogitec.com"))
+                .contact(new Contact("Cyber Logitec Vietnam","https://github.com/tuanphanhcm","tuan.phan@cyberlogitec.com"))
                 .build();
     }
 }
