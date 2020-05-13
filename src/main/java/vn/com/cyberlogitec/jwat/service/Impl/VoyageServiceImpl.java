@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import vn.com.cyberlogitec.jwat.model.Voyage;
+import vn.com.cyberlogitec.jwat.model.dto.VoyageShipmentDto;
 import vn.com.cyberlogitec.jwat.repository.VoyageRepository;
 import vn.com.cyberlogitec.jwat.service.VoyageService;
 
@@ -29,6 +30,12 @@ public class VoyageServiceImpl implements VoyageService {
 	public Voyage getVoyageById(String id) {
 		// TODO Auto-generated method stub
 		return voyageRepository.getVoyageById(id);
+	}
+
+	@Override
+	public List<VoyageShipmentDto> getFullyDataVoyages() {
+		// TODO Auto-generated method stub
+		return voyageRepository.selectFullyDataVoyages();
 	}
 
 }

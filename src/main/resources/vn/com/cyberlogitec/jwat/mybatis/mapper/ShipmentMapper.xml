@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.cyberlogitec.jwat.mybatis.mapper.ShipmentMapper">
+	<!-- 
+		<resultMap id="shipment" type="Shipment">
+	       <id property="shipmentId" column="SHIPMENT_ID"/>
+	       <result property="cargoContent" column="CARGO_CONTENT"/>
+	      	<result property="teqQuantity" column="TEQ_QUANTITY"/>
+	      	<result property="totalCost" column="TOTAL_COST"/>
+	      	<result property="shipRequestDate" column="SHIP_REQUEST_DATE"/>
+	      	<result property="needByDate" column="NEED_BY_DATE"/>
+	      	<result property="status" column="STATUS"/>
+	      	<result property="insuranceFlag" column="INSURANCE_FLAG"/>
+	      	<result property="insuranceAmount" column="INSURANCE_AMOUNT"/>
+	   </resultMap>
+	 -->
+	
+ 	
+ 	<select id="getAllShipments" resultType="Shipment">
+ 		SELECT *
+ 		FROM SHIPMENT
+ 	</select>
+ 	
+</mapper>

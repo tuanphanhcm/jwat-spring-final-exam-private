@@ -1,12 +1,14 @@
 package vn.com.cyberlogitec.jwat.model;
 
+import java.util.Date;
+
 public class Shipment {
 	private String shipmentId;
 	private String cargoContent;
 	private int teqQuantity;
 	private double totalCost;
-	private String shipRequestDate;
-	private String needByDate;
+	private Date shipRequestDate;
+	private Date needByDate;
 	private String status;
 	private String insuranceFlag;
 	private String insuranceAmount;
@@ -35,16 +37,16 @@ public class Shipment {
 	public void setTotalCost(double totalCost) {
 		this.totalCost = totalCost;
 	}
-	public String getShipRequestDate() {
+	public Date getShipRequestDate() {
 		return shipRequestDate;
 	}
-	public void setShipRequestDate(String shipRequestDate) {
+	public void setShipRequestDate(Date shipRequestDate) {
 		this.shipRequestDate = shipRequestDate;
 	}
-	public String getNeedByDate() {
+	public Date getNeedByDate() {
 		return needByDate;
 	}
-	public void setNeedByDate(String needByDate) {
+	public void setNeedByDate(Date needByDate) {
 		this.needByDate = needByDate;
 	}
 	public String getStatus() {

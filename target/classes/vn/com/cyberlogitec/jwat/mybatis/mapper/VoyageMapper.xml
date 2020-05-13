@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.cyberlogitec.jwat.mybatis.mapper.VoyageMapper">
+
+	<resultMap id="voyage" type="Voyage">
+        <id property="voyageId" column="VOYAGE_ID"/>
+        <result property="shipId" column="SHIP_ID"/>
+        <result property="routeId" column="ROUTE_ID"/>
+        <result property="startDate" column="START_DATE"/>
+        <result property="endDate" column="END_DATE"/>
+        <result property="voyageQuantity" column="VOYAGE_QUANTITY"/>
+        <result property="costPerTeq" column="COST_PER_TEQ"/>
+    </resultMap>
+    
+    <resultMap type="vn.com.cyberlogitec.jwat.model.dto.VoyageShipmentDto" id="voyageShipmentDto">
+    	<id property="voyageId" column="voyageId"/>
+    	<result property="shipId" column="shipId"/>
+    	<result property="shipName" column="shipName"/>
+        <result property="routeId" column="routeId"/>
+        <result property="routeName" column="routeName"/>
+        <result property="sourcePortName" column="sourcePortName"/>
+        <result property="destPortName" column="destPortName"/>
+        <result property="startDate" column="startDate"/>
+        <result property="endDate" column="endDate"/>
+        <result property="voyageQuantity" column="voyageQuantity"/>
+        <result property="costPerTeq" column="costPerTeq"/>
+        <collection property="shipments" ofType="Shipment">
+        	<result property="shipmentId" column="shipment_shipmentId"/>
+        	<result property="cargoContent" column="shipment_cargoContent"/>
+        	<result property="teqQuantity" column="shipment_teqQuantity"/>
+        	<result property="totalCost" column="shipment_totalCost"/>
+        	<result property="shipRequestDate" column="shipment_shipRequestDate"/>
+        	<result property="needByDate" column="shipment_needByDate"/>
+        	<result property="status" column="shipment_status"/>
+        	<result property="insuranceFlag" column="shipment_insuranceFlag"/>
+        	<result property="insuranceAmount" column="shipment_insuranceAmount"/>
+        </collection>
+    </resultMap>
+
+	<select id="selectFullyDataVoyages" resultMap="voyageShipmentDto" >
+		SELECT 
+			V.VOYAGE_ID as voyageId,
+		    V.SHIP_ID as shipId,
+		    S.NAME as shipName,
+		    V.ROUTE_ID as routeId,
+		    R.NAME as routeName,
+		    SP.NAME as sourcePortName,
+		    DP.NAME as destPortName,
+		    START_DATE as startDate,
+		    END_DATE as endDate,
+		    VOYAGE_QUANTITY as voyageQuantity,
+		    COST_PER_TEQ as costPerTeq,
+		    SM.SHIPMENT_ID as shipment_shipmentId,
+		    SM.CARGO_CONTENT as shipment_cargoContent,
+		    SM.TEQ_QUANTITY as shipment_teqQuantity,
+		    SM.TOTAL_COST as shipment_totalCost,
+		    SM.SHIP_REQUEST_DATE as shipment_shipRequestDate,
+		    SM.NEED_BY_DATE as shipment_needByDate,
+		    SM.STATUS as shipment_status,
+		    SM.INSURANCE_FLAG as shipment_insuranceFlag,
+		    SM.INSURANCE_AMOUNT as shipment_insuranceAmount
+		FROM
+			VOYAGE V
+		    LEFT JOIN SHIP S ON V.SHIP_ID = S.SHIP_ID
+		    LEFT JOIN ROUTE R ON V.ROUTE_ID = R.ROUTE_ID
+		    LEFT JOIN PORT SP ON R.SOURCE_PORT_ID = SP.PORT_ID
+		    LEFT JOIN PORT DP ON R.DEST_PORT_ID = DP.PORT_ID
+		    LEFT JOIN VOYAGE_SHIPMENT VS ON V.VOYAGE_ID = VS.VOYAGE_ID
+		    LEFT JOIN SHIPMENT SM ON VS.SHIPMENT_ID = SM.SHIPMENT_ID
+	</select>
+    
+    <select id="selectAllVoyages" resultMap="voyage">
+        SELECT
+          VOYAGE_ID,
+          SHIP_ID,
+          ROUTE_ID,
+          START_DATE,
+          END_DATE,
+          VOYAGE_QUANTITY,
+          COST_PER_TEQ
+        FROM
+          VOYAGE
+    </select>
+    
+    <select id="selectVoyageById" resultMap="voyage">
+        SELECT
+          *
+        FROM
+          VOYAGE
+        WHERE VOYAGE_ID = #{id}
+    </select>
+</mapper>
