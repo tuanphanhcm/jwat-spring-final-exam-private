@@ -43,16 +43,4 @@
  
  - **Controller layer**
   - ![](src/main/resources/images/endpoints.png)
- 
-## Problem 1
- **Design functions help user could:**
- - Register new user
- - Update user's information
- - Delete a user _(you should set IS_DELETED column with value 1 to mark as deleted, never delete a record on the table)_
- - Get list of all users
- 
-## Problem 2
- **After a certain time of operation, the user need some data for analytics, help them with these function:**
- - Get the list of country which has many users already had shipments, list should be ordered by number of user per country.
- - Get list of top 20 MVP user include fullname, phone, email, city, country and total cost of their shipments.
-## Problem 3
+
